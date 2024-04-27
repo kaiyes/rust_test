@@ -1,5 +1,10 @@
 fn main() {
-    let fruits = vec!["orange", "apple", "mango"];
-    let is_empty: bool = fruits.is_empty();
-    println!("{}", is_empty);
+    let mut i = 0;
+    let _x = loop {
+        if i > 2 {
+            println!("{i}");
+            break i * 2;
+        };
+        i += 1;
+    };
 }
