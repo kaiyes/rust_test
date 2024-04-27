@@ -1,6 +1,6 @@
+use std::i8;
+
 fn main() {
-    println!("Hello world");
-    let x: i32;
-    assert_eq!(x, 5);
-    println!("success");
+    let _num: i8 = 11; //i32
+    println!("the number is {}", _num);
 }
