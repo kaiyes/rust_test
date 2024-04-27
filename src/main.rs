@@ -1,6 +1,5 @@
 fn main() {
-    let x = 1..6;
-    for i in x {
-        println!("kinjoku batto {i}");
-    }
+    let fruits = vec!["orange", "apple", "mango"];
+    let is_empty: bool = fruits.is_empty();
+    println!("{}", is_empty);
 }
