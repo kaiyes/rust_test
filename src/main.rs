@@ -15,7 +15,7 @@ fn other() {
             continue;
         }
         if n > 10 {
-            break;
+            n = 0;
         }
         println!("{n}");
     }
