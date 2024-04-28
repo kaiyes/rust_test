@@ -1,7 +1,13 @@
 fn main() {
-    //array
-    let countries = ["Korea", "Japan", "USA"];
-    println!("{} {}", countries[1], countries[2]);
-    let mix_tuple: (&str, i8) = ("Malaysia", 1);
-    println!("{} {}", mix_tuple.0, mix_tuple.1);
+    let number = 13;
+
+    match number {
+        // Match a single value
+        10 => println!("One!"),
+        // Match several values
+        2 | 3 | 5 | 7 | 11 => println!("This is a prime"),
+        // Match an inclusive range
+        13..=19 => println!("rutgart"),
+        _ => println!("special"),
+    }
 }
