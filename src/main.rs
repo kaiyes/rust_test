@@ -1,7 +1,10 @@
 use anyhow::Result;
 use serde::{Deserialize, Serialize};
+use solana_client::rpc_client::RpcClient;
+use solana_sdk::pubkey::Pubkey;
 use std::fs::File;
 use std::io::Read;
+use std::str::FromStr;
 
 #[derive(Serialize, Deserialize, Debug)]
 
@@ -17,8 +20,14 @@ fn main() -> Result<()> {
 
     let accounts: Vec<Account> = serde_json::from_str(&contents)?;
 
+    // Specify the Solana cluster you want to connect to
+    let client = RpcClient::new("https://api.mainnet-beta.solana.com");
+
     for account in accounts {
-        println!("Public Key: {}", account.public_key);
+        let pubkey = Pubkey::from_str(&account.public_key)?;
+        let balance = client.get_balance(&pubkey)?;
+
+        println!("Public Key: {}, Balance: {}", account.public_key, balance);
     }
 
     Ok(())
