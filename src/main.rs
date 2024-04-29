@@ -25,10 +25,16 @@ fn main() -> Result<()> {
 
     for account in accounts {
         let pubkey = Pubkey::from_str(&account.public_key)?;
-        let balance = client.get_balance(&pubkey)?;
+        let balance: f64 = client.get_balance(&pubkey)? as f64;
 
-        println!("Public Key: {}, Balance: {}", account.public_key, balance);
+        println!(
+            "Public Key: {}, Balance: {}",
+            account.public_key,
+            balance / LAMPORTS_PER_SOL
+        );
     }
 
     Ok(())
 }
+
+const LAMPORTS_PER_SOL: f64 = 1_000_000_000.0;
