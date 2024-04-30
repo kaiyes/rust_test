@@ -11,6 +11,7 @@ use std::str::FromStr;
 struct Account {
     public_key: String,
     private_key: String,
+    lets_eat: String,
 }
 
 fn main() -> Result<()> {
